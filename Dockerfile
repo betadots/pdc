@@ -2,9 +2,6 @@ FROM ubuntu:20.04
 
 LABEL org.label-schema.maintainer="betadots GmbH <info@betadots.de>"
 
-ENV LANG en_US.UTF-8
-ENV LANGUAGE en_US:en
-ENV LC_ALL en_US.UTF-8
 ENV DEBIAN_FRONTEND=noninteractive
 
 ADD https://apt.puppet.com/puppet7-release-focal.deb /puppet7-release-focal.deb
@@ -22,21 +19,26 @@ RUN apt update && apt install -y --no-install-recommends \
     libssl1.1 \
     libxml2-dev \
     libxslt1-dev \
+    locales \
     make \
     openssh-client \
     openssl \
-    pkg-config\
-    wget \
-    zlib1g-dev \
-    yamllint \
-    python3-yaml \
-    puppet-agent \
     pdk \
+    pkg-config\
+    puppet-agent \
     puppetdb-termini \
-    && /opt/puppetlabs/puppet/bin/puppet module install puppet-catalog_diff
+    python3-yaml \
+    wget \
+    yamllint \
+    zlib1g-dev \
+    && /opt/puppetlabs/puppet/bin/puppet module install puppet-catalog_diff \
+    && locale-gen en_US.UTF-8
     # && /opt/puppetlabs/puppet/bin/bundle install
 
 ENV PATH=/opt/puppetlabs/server/bin:/opt/puppetlabs/puppet/bin:/opt/puppetlabs/bin:$PATH
+ENV LANG en_US.UTF-8
+ENV LANGUAGE en_US:en
+ENV LC_ALL en_US.UTF-8
 
 # ENTRYPOINT ["/opt/puppetlabs/bin/puppet"]
 # CMD ["agent" "--verbose" "--onetime" "--no-daemonize"

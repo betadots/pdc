@@ -6,3 +6,4 @@ includes:
 - catalog_diff
 - PDK 3.0.0
 - Puppetdb-termini 7.13.1
+- yamllint
