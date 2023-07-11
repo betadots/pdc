@@ -1,0 +1,11 @@
+source 'https://rubygems.org'
+
+gem 'hiera-eyaml',                   '~> 3.3'
+gem 'onceover-codequality',          '~> 0.10'
+gem 'onceover-lookup',               '~> 0.1', '>= 0.1.1'
+gem 'onceover-octocatalog-diff',     '~> 0.1', '>= 0.1.8'
+gem 'onceover',                      '~> 3.20'
+gem 'r10k',                          '~> 3.15'
+gem 'ra10ke',                        '~> 2.0'
+gem 'voxpupuli-acceptance',          '~> 1.2'
+gem 'voxpupuli-test',                '~> 6.0'
