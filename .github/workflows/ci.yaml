@@ -1,0 +1,21 @@
+---
+name: QA🚦
+
+on:
+  pull_request:
+
+jobs:
+  build_docker_image:
+    name: 'Test container build'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Build container
+        uses: docker/build-push-action@v4
+        with:
+          context: .
+          platforms: linux/amd64
+          push: false
