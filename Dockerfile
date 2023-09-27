@@ -1,4 +1,4 @@
-FROM ubuntu:20.04
+FROM ubuntu:22.04
 
 LABEL org.label-schema.maintainer="betadots GmbH <info@betadots.de>"
 
