@@ -26,6 +26,7 @@ RUN apt update && apt install -y --no-install-recommends \
     pdk \
     pkg-config\
     puppet-agent \
+    puppet-bolt \
     puppetdb-termini \
     python3-yaml \
     wget \
@@ -35,6 +36,7 @@ RUN apt update && apt install -y --no-install-recommends \
     && locale-gen en_US.UTF-8
     # && /opt/puppetlabs/puppet/bin/bundle install
 
+ENV BOLT_DISABLE_ANALYTICS=true
 ENV PATH=/opt/puppetlabs/server/bin:/opt/puppetlabs/puppet/bin:/opt/puppetlabs/bin:$PATH
 ENV LANG en_US.UTF-8
 ENV LANGUAGE en_US:en
