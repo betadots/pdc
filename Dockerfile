@@ -32,6 +32,9 @@ RUN apt update && apt install -y --no-install-recommends \
     wget \
     yamllint \
     zlib1g-dev \
+    && apt autoremove -y \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/* \
     && /opt/puppetlabs/puppet/bin/puppet module install puppet-catalog_diff \
     && locale-gen en_US.UTF-8
     # && /opt/puppetlabs/puppet/bin/bundle install
