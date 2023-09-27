@@ -19,3 +19,30 @@ jobs:
           context: .
           platforms: linux/amd64
           push: false
+  test_gem_installation:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        ruby:
+          - "2.7"
+          - "3.0"
+          - "3.1"
+          - "3.2"
+    name: Ruby ${{ matrix.ruby }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Ruby ${{ matrix.ruby }}
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ matrix.ruby }}
+          bundler-cache: true
+
+  tests:
+    needs:
+      - build_docker_image
+      - test_gem_installation
+    runs-on: ubuntu-latest
+    name: Test suite
+    steps:
+      - run: echo Test suite completed
