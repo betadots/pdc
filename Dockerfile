@@ -1,6 +1,13 @@
 FROM ubuntu:22.04
 
-LABEL org.label-schema.maintainer="betadots GmbH <info@betadots.de>"
+LABEL org.label-schema.maintainer="betadots GmbH <info@betadots.de>" \
+      org.label-schema.vendor="betadots" \
+      org.label-schema.url="https://github.com/betadots/pdc" \
+      org.label-schema.name="Puppet Development Container" \
+      org.label-schema.license="AGPL-3.0-or-later" \
+      org.label-schema.vcs-url="https://github.com/betadots/pdc" \
+      org.label-schema.schema-version="1.0" \
+      org.label-schema.dockerfile="/Dockerfile"
 
 ENV DEBIAN_FRONTEND=noninteractive
 
