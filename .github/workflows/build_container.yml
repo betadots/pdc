@@ -3,6 +3,8 @@ name: Build container 🐳
 
 on:
   push:
+    paths-ignore:
+      - '.github/**'
     branches:
       - 'main'
     tags:
