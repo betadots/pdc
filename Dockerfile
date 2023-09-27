@@ -8,6 +8,7 @@ ADD https://apt.puppet.com/puppet7-release-jammy.deb /puppet7-release-jammy.deb
 RUN apt install /puppet7-release-jammy.deb
 
 RUN apt update && apt install -y --no-install-recommends \
+    ca-certificates \
     cmake \
     curl \
     g++ \
