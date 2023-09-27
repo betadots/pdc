@@ -1,4 +1,4 @@
-FROM ubuntu:20.04
+FROM ubuntu:22.04
 
 LABEL org.label-schema.maintainer="betadots GmbH <info@betadots.de>"
 
@@ -14,9 +14,8 @@ RUN apt update && apt install -y --no-install-recommends \
     gcc \
     git \
     gnupg2 \
-    libldap-2.4-2 \
+    libldap-2.5-0 \
     libldap-common \
-    libssl1.1 \
     libxml2-dev \
     libxslt1-dev \
     locales \
