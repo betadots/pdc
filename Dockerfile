@@ -4,8 +4,8 @@ LABEL org.label-schema.maintainer="betadots GmbH <info@betadots.de>"
 
 ENV DEBIAN_FRONTEND=noninteractive
 
-ADD https://apt.puppet.com/puppet7-release-focal.deb /puppet7-release-focal.deb
-RUN apt install /puppet7-release-focal.deb
+ADD https://apt.puppet.com/puppet7-release-jammy.deb /puppet7-release-jammy.deb
+RUN apt install /puppet7-release-jammy.deb
 
 RUN apt update && apt install -y --no-install-recommends \
     cmake \
