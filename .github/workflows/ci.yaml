@@ -10,20 +10,18 @@ on:
       - main
 
 jobs:
-  build_docker_image:
-    name: 'Test container build'
+  build_test_container:
+    name: 'Build test container'
     runs-on: ubuntu-latest
     permissions:
       contents: read
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-      - name: Build container
-        uses: docker/build-push-action@v5
+      - uses: voxpupuli/gha-build-and-publish-a-container@v1
         with:
-          context: .
-          platforms: linux/amd64
-          push: false
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          build_arch: linux/amd64
+          publish: 'false'
+
   test_gem_installation:
     runs-on: ubuntu-latest
     strategy:
@@ -45,7 +43,7 @@ jobs:
 
   tests:
     needs:
-      - build_docker_image
+      - build_test_container
       - test_gem_installation
     runs-on: ubuntu-latest
     name: Test suite
