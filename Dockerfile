@@ -9,10 +9,16 @@ LABEL org.label-schema.maintainer="betadots GmbH <info@betadots.de>" \
       org.label-schema.schema-version="1.0" \
       org.label-schema.dockerfile="/Dockerfile"
 
-ENV DEBIAN_FRONTEND=noninteractive
+ARG PUPPET_VERSION
+ENV PUPPET_VERSION=${PUPPET_VERSION:-7}
 
-ADD https://apt.puppet.com/puppet7-release-jammy.deb /puppet7-release-jammy.deb
-RUN apt install /puppet7-release-jammy.deb
+ENV DEBIAN_FRONTEND=noninteractive
+ENV PUPPET_DEB=puppet${PUPPET_VERSION}-release-jammy.deb
+
+ADD https://apt.puppet.com/${PUPPET_DEB} /${PUPPET_DEB}
+
+RUN apt install /${PUPPET_DEB} \
+    && rm -f /${PUPPET_DEB}
 
 RUN apt update && apt install -y --no-install-recommends \
     ca-certificates \
