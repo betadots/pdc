@@ -18,18 +18,18 @@ jobs:
       packages: write
     steps:
       - name: Build Puppet 7 container
-        uses: voxpupuli/gha-build-and-publish-a-container@v1
+        uses: voxpupuli/gha-build-and-publish-a-container@v2
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          registry_password: ${{ secrets.GITHUB_TOKEN }}
           build_arch: linux/amd64
           publish: 'true'
           build_args: 'PUPPET_VERSION=7'
         if: ${{ startsWith(github.ref_name, 'v7') }}
 
       - name: Build Puppet 8 container
-        uses: voxpupuli/gha-build-and-publish-a-container@v1
+        uses: voxpupuli/gha-build-and-publish-a-container@v2
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          registry_password: ${{ secrets.GITHUB_TOKEN }}
           build_arch: linux/amd64
           publish: 'true'
           build_args: 'PUPPET_VERSION=8'

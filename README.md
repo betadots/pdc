@@ -8,3 +8,4 @@ includes:
 - PDK 3.0.0
 - Puppetdb-termini 7.14.0
 - yamllint
+- terraform 1.6.2
