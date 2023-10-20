@@ -21,8 +21,6 @@ jobs:
         uses: voxpupuli/gha-build-and-publish-a-container@v2
         with:
           registry_password: ${{ secrets.GITHUB_TOKEN }}
-          build_arch: linux/amd64
-          publish: 'true'
           build_args: 'PUPPET_VERSION=7'
         if: ${{ startsWith(github.ref_name, 'v7') }}
 
@@ -30,7 +28,10 @@ jobs:
         uses: voxpupuli/gha-build-and-publish-a-container@v2
         with:
           registry_password: ${{ secrets.GITHUB_TOKEN }}
-          build_arch: linux/amd64
-          publish: 'true'
           build_args: 'PUPPET_VERSION=8'
         if: ${{ startsWith(github.ref_name, 'v8') }}
+
+      - name: Build development tag
+        uses: voxpupuli/gha-build-and-publish-a-container@v2
+        with:
+          registry_password: ${{ secrets.GITHUB_TOKEN }}
