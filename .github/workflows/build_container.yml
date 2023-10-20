@@ -35,3 +35,4 @@ jobs:
         uses: voxpupuli/gha-build-and-publish-a-container@v2
         with:
           registry_password: ${{ secrets.GITHUB_TOKEN }}
+        if: ${{ startsWith(github.ref_name, 'main') }}
