@@ -9,6 +9,7 @@ LABEL org.label-schema.maintainer="betadots GmbH <info@betadots.de>" \
       org.label-schema.schema-version="1.0" \
       org.label-schema.dockerfile="/Dockerfile"
 
+ARG TARGETARCH
 ARG PUPPET_VERSION
 ENV PUPPET_VERSION=${PUPPET_VERSION:-7}
 
@@ -42,6 +43,7 @@ RUN apt update && apt install -y --no-install-recommends \
     puppet-bolt \
     puppetdb-termini \
     python3-yaml \
+    unzip \
     wget \
     yamllint \
     zlib1g-dev \
@@ -51,6 +53,14 @@ RUN apt update && apt install -y --no-install-recommends \
     && /opt/puppetlabs/puppet/bin/puppet module install puppet-catalog_diff \
     && locale-gen en_US.UTF-8
     # && /opt/puppetlabs/puppet/bin/bundle install
+
+ADD https://releases.hashicorp.com/terraform/1.6.2/terraform_1.6.2_linux_${TARGETARCH}.zip /terraform_1.6.2_linux_${TARGETARCH}.zip
+RUN \
+    unzip terraform_1.6.2_linux_${TARGETARCH}.zip && \
+    mv terraform /usr/local/bin/terraform && \
+    chmod +x /usr/local/bin/terraform && \
+    rm terraform_1.6.2_linux_${TARGETARCH}.zip && \
+    terraform --version
 
 ENV BOLT_DISABLE_ANALYTICS=true
 ENV PATH=/opt/puppetlabs/server/bin:/opt/puppetlabs/puppet/bin:/opt/puppetlabs/bin:$PATH
