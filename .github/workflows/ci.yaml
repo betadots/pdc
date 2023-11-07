@@ -16,10 +16,9 @@ jobs:
     permissions:
       contents: read
     steps:
-      - uses: voxpupuli/gha-build-and-publish-a-container@v1
+      - uses: voxpupuli/gha-build-and-publish-a-container@v2
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          build_arch: linux/amd64
+          registry_password: ${{ secrets.GITHUB_TOKEN }}
           publish: 'false'
 
   test_gem_installation:
