@@ -1,6 +1,6 @@
 ARG UBUNTU_CODENAME=jammy
 
-FROM ubuntu:22.04
+FROM ubuntu:${UBUNTU_CODENAME}
 
 LABEL org.label-schema.maintainer="betadots GmbH <info@betadots.de>" \
       org.label-schema.vendor="betadots" \
@@ -12,7 +12,6 @@ LABEL org.label-schema.maintainer="betadots GmbH <info@betadots.de>" \
       org.label-schema.dockerfile="/Dockerfile"
 
 ARG TARGETARCH
-ARG UBUNTU_CODENAME
 
 ARG PUPPET_RELEASE
 ENV PUPPET_RELEASE=${PUPPET_RELEASE:-7}
