@@ -1,3 +1,5 @@
+ARG UBUNTU_CODENAME=jammy
+
 FROM ubuntu:22.04
 
 LABEL org.label-schema.maintainer="betadots GmbH <info@betadots.de>" \
@@ -10,11 +12,28 @@ LABEL org.label-schema.maintainer="betadots GmbH <info@betadots.de>" \
       org.label-schema.dockerfile="/Dockerfile"
 
 ARG TARGETARCH
+ARG UBUNTU_CODENAME
+
+ARG PUPPET_RELEASE
+ENV PUPPET_RELEASE=${PUPPET_RELEASE:-7}
+
 ARG PUPPET_VERSION
-ENV PUPPET_VERSION=${PUPPET_VERSION:-7}
+ENV PUPPET_VERSION=${PUPPET_VERSION:-7.27.0}
+
+ARG TERRAFORM_VERSION
+ENV TERRAFORM_VERSION=${TERRAFORM_VERSION:-1.6.2}
+
+ARG PDK_VERSION
+ENV PDK_VERSION=${PDK_VERSION:-3.0.0}
+
+ARG BOLT_VERSION
+ENV BOLT_VERSION=${BOLT_VERSION:-3.27.4}
+
+ARG PUPPETDB_TERMINI_VERSION
+ENV PUPPETDB_TERMINI_VERSION=${PUPPETDB_TERMINI_VERSION:-7.15.0}
 
 ENV DEBIAN_FRONTEND=noninteractive
-ENV PUPPET_DEB=puppet${PUPPET_VERSION}-release-jammy.deb
+ENV PUPPET_DEB=puppet${PUPPET_RELEASE}-release-${UBUNTU_CODENAME}.deb
 
 ADD https://apt.puppet.com/${PUPPET_DEB} /${PUPPET_DEB}
 
@@ -37,11 +56,11 @@ RUN apt update && apt install -y --no-install-recommends \
     make \
     openssh-client \
     openssl \
-    pdk \
+    pdk=${PDK_VERSION}-1${UBUNTU_CODENAME} \
     pkg-config\
-    puppet-agent \
-    puppet-bolt \
-    puppetdb-termini \
+    puppet-agent=${PUPPET_VERSION}-1${UBUNTU_CODENAME} \
+    puppet-bolt=${BOLT_VERSION}-1${UBUNTU_CODENAME} \
+    puppetdb-termini=${PUPPETDB_TERMINI_VERSION}-1${UBUNTU_CODENAME} \
     python3-yaml \
     unzip \
     wget \
@@ -54,12 +73,12 @@ RUN apt update && apt install -y --no-install-recommends \
     && locale-gen en_US.UTF-8
     # && /opt/puppetlabs/puppet/bin/bundle install
 
-ADD https://releases.hashicorp.com/terraform/1.6.2/terraform_1.6.2_linux_${TARGETARCH}.zip /terraform_1.6.2_linux_${TARGETARCH}.zip
+ADD https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_${TARGETARCH}.zip /terraform_${TERRAFORM_VERSION}_linux_${TARGETARCH}.zip
 RUN \
-    unzip terraform_1.6.2_linux_${TARGETARCH}.zip && \
+    unzip terraform_${TERRAFORM_VERSION}_linux_${TARGETARCH}.zip && \
     mv terraform /usr/local/bin/terraform && \
     chmod +x /usr/local/bin/terraform && \
-    rm terraform_1.6.2_linux_${TARGETARCH}.zip && \
+    rm terraform_${TERRAFORM_VERSION}_linux_${TARGETARCH}.zip && \
     terraform --version
 
 ENV BOLT_DISABLE_ANALYTICS=true

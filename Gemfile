@@ -1,10 +1,10 @@
 source 'https://rubygems.org'
 
 gem 'hiera-eyaml',                   '~> 3.3'
+gem 'onceover',                      '~> 3.20'
 gem 'onceover-codequality',          '~> 0.10'
 gem 'onceover-lookup',               '~> 0.1', '>= 0.1.1'
 gem 'onceover-octocatalog-diff',     '~> 0.1', '>= 0.1.8'
-gem 'onceover',                      '~> 3.20'
 gem 'r10k',                          '~> 4.0'
 gem 'ra10ke',                        '~> 3.0'
 gem 'voxpupuli-acceptance',          '~> 3.0'
