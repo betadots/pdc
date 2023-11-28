@@ -2,8 +2,6 @@ name: Build and publish a 🛢️ container
 
 on:
   push:
-    paths-ignore:
-      - '.github/**'
     branches:
       - 'main'
     tags:
@@ -11,28 +9,38 @@ on:
   workflow_dispatch:
 
 jobs:
+  setup-matrix:
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.set-matrix.outputs.matrix }}
+    steps:
+      - name: Source checkout
+        uses: actions/checkout@v4
+
+      - id: set-matrix
+        run: echo "matrix=$(jq -c . build_versions.json)" >> $GITHUB_OUTPUT
+
   build-and-push-container:
     runs-on: ubuntu-latest
     permissions:
       contents: read
       packages: write
+    needs: setup-matrix
+    strategy:
+      matrix: ${{ fromJson(needs.setup-matrix.outputs.matrix) }}
     steps:
-      - name: Build Puppet 7 container
+      - name: Build Puppet Development Container ${{ matrix.puppet_release }}
         uses: voxpupuli/gha-build-and-publish-a-container@v2
         with:
           registry_password: ${{ secrets.GITHUB_TOKEN }}
-          build_args: 'PUPPET_VERSION=7'
-        if: ${{ startsWith(github.ref_name, 'v7') }}
-
-      - name: Build Puppet 8 container
-        uses: voxpupuli/gha-build-and-publish-a-container@v2
-        with:
-          registry_password: ${{ secrets.GITHUB_TOKEN }}
-          build_args: 'PUPPET_VERSION=8'
-        if: ${{ startsWith(github.ref_name, 'v8') }}
-
-      - name: Build development tag
-        uses: voxpupuli/gha-build-and-publish-a-container@v2
-        with:
-          registry_password: ${{ secrets.GITHUB_TOKEN }}
-        if: ${{ startsWith(github.ref_name, 'main') }}
+          build_args: |
+            PUPPET_RELEASE=${{ matrix.puppet_release }}
+            PUPPET_VERSION=${{ matrix.puppet_version }}
+            TERRAFORM_VERSION=${{ matrix.terraform_version }}
+            PDK_VERSION=${{ matrix.pdk_version }}
+            BOLT_VERSION=${{ matrix.bolt_version }}
+            PUPPETDB_TERMINI_VERSION=${{ matrix.puppetdb_termini_version }}
+          tags: |
+            ghcr.io/${{ github.repository }}:${{ github.ref_name }}-${{ matrix.puppet_release }}
+            ghcr.io/${{ github.repository }}:latest-${{ matrix.puppet_release }}
+            ghcr.io/${{ github.repository }}:latest
