@@ -13,6 +13,9 @@ LABEL org.label-schema.maintainer="betadots GmbH <info@betadots.de>" \
 
 ARG TARGETARCH
 
+# needs to be set again, otherwise it is not available in the next stage
+ARG UBUNTU_CODENAME
+
 ARG PUPPET_RELEASE
 ENV PUPPET_RELEASE=${PUPPET_RELEASE:-7}
 
