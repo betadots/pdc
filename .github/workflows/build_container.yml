@@ -39,7 +39,7 @@ jobs:
             TERRAFORM_VERSION=${{ matrix.terraform_version }}
             PDK_VERSION=${{ matrix.pdk_version }}
             BOLT_VERSION=${{ matrix.bolt_version }}
-            PUPPETDB_VERSION=${{ matrix.puppetdb_version }}
+            PUPPETDB_TERMINI_VERSION=${{ matrix.puppetdb_termini_version }}
           tags: |
             ghcr.io/${{ github.repository }}:${{ github.ref_name }}-${{ matrix.puppet_release }}
             ghcr.io/${{ github.repository }}:latest-${{ matrix.puppet_release }}
