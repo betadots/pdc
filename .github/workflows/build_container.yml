@@ -18,7 +18,7 @@ jobs:
         uses: actions/checkout@v4
 
       - id: set-matrix
-        run: echo "matrix=$(cat build_versions.json | jq -c)" >> $GITHUB_OUTPUT
+        run: echo "matrix=$(jq -c . build_versions.json)" >> $GITHUB_OUTPUT
 
   build-and-push-container:
     runs-on: ubuntu-latest
