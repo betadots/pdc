@@ -43,3 +43,4 @@ jobs:
           tags: |
             ghcr.io/${{ github.repository }}:${{ github.ref_name }}-${{ matrix.puppet_release }}
             ghcr.io/${{ github.repository }}:latest-${{ matrix.puppet_release }}
+            ghcr.io/${{ github.repository }}:latest
