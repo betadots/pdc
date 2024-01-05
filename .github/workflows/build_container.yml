@@ -40,6 +40,8 @@ jobs:
             PDK_VERSION=${{ matrix.pdk_version }}
             BOLT_VERSION=${{ matrix.bolt_version }}
             PUPPETDB_TERMINI_VERSION=${{ matrix.puppetdb_termini_version }}
+          # we can not yet build arm containers as pdk and bolt are not available for arm
+          # build_arch: linux/amd64,linux/arm64
           tags: |
             ghcr.io/${{ github.repository }}:${{ github.ref_name }}-${{ matrix.puppet_release }}
             ghcr.io/${{ github.repository }}:latest-${{ matrix.puppet_release }}

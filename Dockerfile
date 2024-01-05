@@ -26,7 +26,7 @@ ARG TERRAFORM_VERSION
 ENV TERRAFORM_VERSION=${TERRAFORM_VERSION:-1.6.2}
 
 ARG PDK_VERSION
-ENV PDK_VERSION=${PDK_VERSION:-3.0.0.0}
+ENV PDK_VERSION=${PDK_VERSION:-3.0.1.3}
 
 ARG BOLT_VERSION
 ENV BOLT_VERSION=${BOLT_VERSION:-3.27.4}
@@ -42,7 +42,7 @@ ADD https://apt.puppet.com/${PUPPET_DEB} /${PUPPET_DEB}
 RUN apt install /${PUPPET_DEB} \
     && rm -f /${PUPPET_DEB}
 
-RUN apt update && apt install -y --no-install-recommends \
+RUN apt update && apt upgrade -y && apt install -y --no-install-recommends \
     ca-certificates \
     cmake \
     curl \
