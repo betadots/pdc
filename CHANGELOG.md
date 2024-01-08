@@ -2,7 +2,20 @@
 
 All notable changes to this project will be documented in this file.
 
-## [v1.0.0](https://github.com/betadots/pdc/tree/v1.0.0) (2023-11-28)
+## [v1.0.1](https://github.com/betadots/pdc/tree/v1.0.1) (2024-01-08)
+
+[Full Changelog](https://github.com/betadots/pdc/compare/v1.0.0...v1.0.1)
+
+**Closed issues:**
+
+- Allow the use of PDC with CD4PE [\#27](https://github.com/betadots/pdc/issues/27)
+
+**Merged pull requests:**
+
+- Also push to dockerhub [\#30](https://github.com/betadots/pdc/pull/30) ([rwaffen](https://github.com/rwaffen))
+- update pdk version and Gemfile [\#28](https://github.com/betadots/pdc/pull/28) ([tuxmea](https://github.com/tuxmea))
+
+## [v1.0.0](https://github.com/betadots/pdc/tree/v1.0.0) (2023-11-29)
 
 [Full Changelog](https://github.com/betadots/pdc/compare/v8.2.0...v1.0.0)
 
