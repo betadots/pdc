@@ -42,7 +42,18 @@ jobs:
             PUPPETDB_TERMINI_VERSION=${{ matrix.puppetdb_termini_version }}
           # we can not yet build arm containers as pdk and bolt are not available for arm
           # build_arch: linux/amd64,linux/arm64
+          docker_username: ${{ vars.DOCKERHUB_USER }}
+          docker_password: ${{ secrets.DOCKERHUB_TOKEN }}
           tags: |
             ghcr.io/${{ github.repository }}:${{ github.ref_name }}-${{ matrix.puppet_release }}
             ghcr.io/${{ github.repository }}:latest-${{ matrix.puppet_release }}
             ghcr.io/${{ github.repository }}:latest
+            docker.io/${{ github.repository }}:${{ github.ref_name }}-${{ matrix.puppet_release }}
+            docker.io/${{ github.repository }}:latest-${{ matrix.puppet_release }}
+            docker.io/${{ github.repository }}:latest
+
+      - name: Update Docker Hub Description
+        uses: peter-evans/dockerhub-description@v3
+        with:
+          username: ${{ vars.DOCKERHUB_USER }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
