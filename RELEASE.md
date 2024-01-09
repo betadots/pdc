@@ -1,12 +1,19 @@
 # How to make a release
 
-Create a Release PR.
-The release branch has to have the version in the name, because this will be used as `future_version` of the github cnahgelog generator.
+Initiate a Release Pull Request (PR). Ensure that the release branch includes the version in its name, as this will be utilized as the 'future_version' for the GitHub changelog generator.
+
+See Rakefile
+
+```ruby
+    config.future_release = `git rev-parse --abbrev-ref HEAD`.strip.split('-', 2).last
+```
+
+Create a Release PR:
 
 ```shell
 git switch main
 git pull -r
-git switch -c release-v1.0.0
+git switch -c release-vX.Y.Z
 
 bundle config set --local path vendor/bundle
 bundle config set --local with 'release'
@@ -14,8 +21,8 @@ bundle install
 
 CHANGELOG_GITHUB_TOKEN="token_MC_tokenface" bundle exec rake changelog
 
-git commit -am 'Release v1.0.0'
-git push origin release-v1.0.0
+git commit -am 'Release vX.Y.Z'
+git push origin release-vX.Y.Z
 ```
 
 After the merge do:
@@ -23,6 +30,6 @@ After the merge do:
 ```shell
 git switch main
 git pull -r
-git tag v1.0.0
+git tag vX.Y.Z
 git push --tags
 ```

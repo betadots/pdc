@@ -17,3 +17,34 @@ Rather than using bash directly, you have the option to mount the repository and
 Included fixed software versions, see: [build_versions.json](build_versions.json)
 
 For any given container tag you can lookup the specific versions here: `https://github.com/betadots/pdc/blob/$TAG/build_versions.json`
+
+## Version schema
+
+The version schema has the following layout:
+
+```text
+v<container.major>.<container.minor>.<container.patch>-<puppet.major>
+```
+
+Example usage:
+
+```shell
+docker run -ti --rm ghcr.io:betadots/pdc:v1.0.1-8 bash
+```
+
+| Name | Description |
+| --- | --- |
+| container.major | Describes the major version of the base container (Ubunutu 22.04) or incompatible changes |
+| container.minor | Describes new features or refactoring with backward compatibility |
+| container.patch | Describes if minor changes or bugfixes have been implemented |
+| puppet.major | Describes the contained major Puppet version (7 or 8) |
+
+### other tags
+
+```text
+latest
+latest-<puppet.major>
+main-<puppet.major>
+```
+
+`latest` should be self-explanatory. The `main` tags are built with every push to the main branch and can be regarded as development tags.
