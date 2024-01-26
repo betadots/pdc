@@ -2,9 +2,28 @@
 
 All notable changes to this project will be documented in this file.
 
-## [v1.0.1](https://github.com/betadots/pdc/tree/v1.0.1) (2024-01-08)
+## [v1.1.0](https://github.com/betadots/pdc/tree/v1.1.0) (2024-01-26)
+
+[Full Changelog](https://github.com/betadots/pdc/compare/v1.0.1...v1.1.0)
+
+**Closed issues:**
+
+- also push to dockerhub [\#29](https://github.com/betadots/pdc/issues/29)
+
+**Merged pull requests:**
+
+- Update puppet agent, puppet-termini and terraform [\#35](https://github.com/betadots/pdc/pull/35) ([rwaffen](https://github.com/rwaffen))
+- Bump peter-evans/dockerhub-description from 3 to 4 [\#34](https://github.com/betadots/pdc/pull/34) ([dependabot[bot]](https://github.com/apps/dependabot))
+- update terraform to 1.6.6 [\#33](https://github.com/betadots/pdc/pull/33) ([rwaffen](https://github.com/rwaffen))
+- Update docu [\#32](https://github.com/betadots/pdc/pull/32) ([rwaffen](https://github.com/rwaffen))
+
+## [v1.0.1](https://github.com/betadots/pdc/tree/v1.0.1) (2024-01-09)
 
 [Full Changelog](https://github.com/betadots/pdc/compare/v1.0.0...v1.0.1)
+
+**Implemented enhancements:**
+
+- update pdk version and Gemfile [\#28](https://github.com/betadots/pdc/pull/28) ([tuxmea](https://github.com/tuxmea))
 
 **Closed issues:**
 
@@ -13,7 +32,6 @@ All notable changes to this project will be documented in this file.
 **Merged pull requests:**
 
 - Also push to dockerhub [\#30](https://github.com/betadots/pdc/pull/30) ([rwaffen](https://github.com/rwaffen))
-- update pdk version and Gemfile [\#28](https://github.com/betadots/pdc/pull/28) ([tuxmea](https://github.com/tuxmea))
 
 ## [v1.0.0](https://github.com/betadots/pdc/tree/v1.0.0) (2023-11-29)
 
