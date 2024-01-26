@@ -6,15 +6,18 @@ All notable changes to this project will be documented in this file.
 
 [Full Changelog](https://github.com/betadots/pdc/compare/v1.0.1...v1.1.0)
 
+**Implemented enhancements:**
+
+- Update puppet agent, puppet-termini and terraform [\#35](https://github.com/betadots/pdc/pull/35) ([rwaffen](https://github.com/rwaffen))
+- update terraform to 1.6.6 [\#33](https://github.com/betadots/pdc/pull/33) ([rwaffen](https://github.com/rwaffen))
+
 **Closed issues:**
 
 - also push to dockerhub [\#29](https://github.com/betadots/pdc/issues/29)
 
 **Merged pull requests:**
 
-- Update puppet agent, puppet-termini and terraform [\#35](https://github.com/betadots/pdc/pull/35) ([rwaffen](https://github.com/rwaffen))
 - Bump peter-evans/dockerhub-description from 3 to 4 [\#34](https://github.com/betadots/pdc/pull/34) ([dependabot[bot]](https://github.com/apps/dependabot))
-- update terraform to 1.6.6 [\#33](https://github.com/betadots/pdc/pull/33) ([rwaffen](https://github.com/rwaffen))
 - Update docu [\#32](https://github.com/betadots/pdc/pull/32) ([rwaffen](https://github.com/rwaffen))
 
 ## [v1.0.1](https://github.com/betadots/pdc/tree/v1.0.1) (2024-01-09)
