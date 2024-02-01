@@ -84,10 +84,12 @@ RUN \
     terraform --version
 
 ENV BOLT_DISABLE_ANALYTICS=true
-ENV PATH=/opt/puppetlabs/server/bin:/opt/puppetlabs/puppet/bin:/opt/puppetlabs/bin:$PATH
+ENV PATH=/opt/puppetlabs/puppet/bin:/opt/puppetlabs/bin:$PATH
 ENV LANG en_US.UTF-8
 ENV LANGUAGE en_US:en
 ENV LC_ALL en_US.UTF-8
+
+COPY Dockerfile /
 
 # ENTRYPOINT ["/opt/puppetlabs/bin/puppet"]
 # CMD ["agent" "--verbose" "--onetime" "--no-daemonize"
