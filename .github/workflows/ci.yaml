@@ -16,11 +16,14 @@ jobs:
       contents: read
       security-events: write
     steps:
-      - uses: voxpupuli/gha-build-and-publish-a-container@v2
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Build Docker image
+        uses: docker/build-push-action@v5
         with:
-          registry_password: ${{ secrets.GITHUB_TOKEN }}
-          publish: 'false'
-          tags: ci/pdc:${{ github.sha }}
+          tags: 'ci/pdc:${{ github.sha }}'
+          push: false
 
       - name: Run Trivy vulnerability scanner
         uses: aquasecurity/trivy-action@master
