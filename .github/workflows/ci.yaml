@@ -4,8 +4,6 @@ name: QA🚦
 on:
   pull_request: {}
   push:
-    paths-ignore:
-      - '.github/**'
     branches:
       - main
 
@@ -14,12 +12,30 @@ jobs:
     name: 'Build test container'
     runs-on: ubuntu-latest
     permissions:
+      actions: read
       contents: read
+      security-events: write
     steps:
-      - uses: voxpupuli/gha-build-and-publish-a-container@v2
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Build Docker image
+        uses: docker/build-push-action@v5
         with:
-          registry_password: ${{ secrets.GITHUB_TOKEN }}
-          publish: 'false'
+          tags: 'ci/pdc:${{ github.sha }}'
+          push: false
+
+      - name: Run Trivy vulnerability scanner
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'ci/pdc:${{ github.sha }}'
+          format: 'sarif'
+          output: 'trivy-results.sarif'
+
+      - name: Upload Trivy scan results to GitHub Security tab
+        uses: github/codeql-action/upload-sarif@v3
+        with:
+          sarif_file: 'trivy-results.sarif'
 
   test_gem_installation:
     runs-on: ubuntu-latest
