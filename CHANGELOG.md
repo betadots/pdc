@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file.
 
+## [v2.0.0](https://github.com/betadots/pdc/tree/v2.0.0) (2024-02-02)
+
+[Full Changelog](https://github.com/betadots/pdc/compare/v1.1.0...v2.0.0)
+
+**Breaking changes:**
+
+- Clean up repo, remove not needed code [\#41](https://github.com/betadots/pdc/pull/41) ([rwaffen](https://github.com/rwaffen))
+
+**Implemented enhancements:**
+
+- Update container build and update terraform binary [\#39](https://github.com/betadots/pdc/pull/39) ([rwaffen](https://github.com/rwaffen))
+
+**Closed issues:**
+
+- add trivy scanning [\#37](https://github.com/betadots/pdc/issues/37)
+
+**Merged pull requests:**
+
+- Create CONTRIBUTING.md [\#40](https://github.com/betadots/pdc/pull/40) ([rwaffen](https://github.com/rwaffen))
+- add trivy [\#38](https://github.com/betadots/pdc/pull/38) ([rwaffen](https://github.com/rwaffen))
+
 ## [v1.1.0](https://github.com/betadots/pdc/tree/v1.1.0) (2024-01-26)
 
 [Full Changelog](https://github.com/betadots/pdc/compare/v1.0.1...v1.1.0)
