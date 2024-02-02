@@ -44,36 +44,19 @@ RUN apt install /${PUPPET_DEB} \
 
 RUN apt update && apt upgrade -y && apt install -y --no-install-recommends \
     ca-certificates \
-    cmake \
-    curl \
-    g++ \
-    gcc \
     git \
-    gnupg2 \
-    libldap-2.5-0 \
-    libldap-common \
-    libxml2-dev \
-    libxslt1-dev \
     locales \
-    make \
-    openssh-client \
-    openssl \
     pdk=${PDK_VERSION}-1${UBUNTU_CODENAME} \
-    pkg-config\
     puppet-agent=${PUPPET_VERSION}-1${UBUNTU_CODENAME} \
     puppet-bolt=${BOLT_VERSION}-1${UBUNTU_CODENAME} \
     puppetdb-termini=${PUPPETDB_TERMINI_VERSION}-1${UBUNTU_CODENAME} \
-    python3-yaml \
     unzip \
-    wget \
     yamllint \
-    zlib1g-dev \
     && apt autoremove -y \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* \
     && /opt/puppetlabs/puppet/bin/puppet module install puppet-catalog_diff \
     && locale-gen en_US.UTF-8
-    # && /opt/puppetlabs/puppet/bin/bundle install
 
 ADD https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_${TARGETARCH}.zip /terraform_${TERRAFORM_VERSION}_linux_${TARGETARCH}.zip
 RUN \
