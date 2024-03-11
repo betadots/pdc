@@ -41,7 +41,14 @@ jobs:
             PDK_VERSION=${{ matrix.pdk_version }}
             BOLT_VERSION=${{ matrix.bolt_version }}
             PUPPETDB_TERMINI_VERSION=${{ matrix.puppetdb_termini_version }}
-          # we can not yet build arm containers as pdk and bolt are not available for arm
+            RUBYGEM_BUNDLER=${{ matrix.rubygem_bundler }}
+            RUBYGEM_VOXPUPULI_TEST=${{ matrix.rubygem_voxpupuli_test }}
+            RUBYGEM_VOXPUPULI_ACCEPTANCE=${{ matrix.rubygem_voxpupuli_acceptance }}
+            RUBYGEM_VOXPUPULI_RELEASE=${{ matrix.rubygem_voxpupuli_release }}
+            RUBYGEM_PUPPET_METADATA=${{ matrix.rubygem_puppet_metadata }}
+            RUBYGEM_OVERCOMMIT=${{ matrix.rubygem_overcommit }}
+            RUBYGEM_PUPPET=${{ matrix.rubygem_puppet }}
+            # we can not yet build arm containers as pdk and bolt are not available for arm
           # build_arch: linux/amd64,linux/arm64
           docker_username: ${{ vars.DOCKERHUB_USER }}
           docker_password: ${{ secrets.DOCKERHUB_TOKEN }}
