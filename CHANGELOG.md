@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file.
 
+## [v2.1.0](https://github.com/betadots/pdc/tree/v2.1.0) (2024-03-12)
+
+[Full Changelog](https://github.com/betadots/pdc/compare/v2.0.0...v2.1.0)
+
+**Implemented enhancements:**
+
+- Add rubygems for module testing [\#43](https://github.com/betadots/pdc/pull/43) ([rwaffen](https://github.com/rwaffen))
+
 ## [v2.0.0](https://github.com/betadots/pdc/tree/v2.0.0) (2024-02-02)
 
 [Full Changelog](https://github.com/betadots/pdc/compare/v1.1.0...v2.0.0)
