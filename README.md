@@ -49,6 +49,14 @@ main-<puppet.major>
 
 `latest` should be self-explanatory. The `main` tags are built with every push to the main branch and can be regarded as development tags.
 
+## Changelog
+
+see [CHANGELOG.md](CHANGELOG.md)
+
 ## How to contribute?
 
-see [CONTRIBUTING.md](CONTRIBUTING)
+see [CONTRIBUTING.md](CONTRIBUTING.md)
+
+## How to release?
+
+see [RELEASE.md](RELEASE.md)
