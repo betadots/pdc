@@ -48,6 +48,7 @@ jobs:
             RUBYGEM_PUPPET_METADATA=${{ matrix.rubygem_puppet_metadata }}
             RUBYGEM_OVERCOMMIT=${{ matrix.rubygem_overcommit }}
             RUBYGEM_PUPPET=${{ matrix.rubygem_puppet }}
+            RUBYGEM_MODULESYNC=${{ matrix.rubygem_modulesync }}
             # we can not yet build arm containers as pdk and bolt are not available for arm
           # build_arch: linux/amd64,linux/arm64
           docker_username: ${{ vars.DOCKERHUB_USER }}

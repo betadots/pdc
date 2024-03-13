@@ -28,4 +28,5 @@ gem 'rake', :require => false
 gem 'facter', ENV['FACTER_GEM_VERSION'], :require => false, :groups => [:test]
 gem 'puppet', ENV['RUBYGEM_PUPPET'], :require => false, :groups => [:test]
 
+gem 'modulesync', ENV['RUBYGEM_MODULESYNC']
 # vim: syntax=ruby
