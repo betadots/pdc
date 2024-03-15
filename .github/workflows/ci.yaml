@@ -8,17 +8,6 @@ on:
       - main
 
 jobs:
-  setup-matrix:
-    runs-on: ubuntu-latest
-    outputs:
-      matrix: ${{ steps.set-matrix.outputs.matrix }}
-    steps:
-      - name: Source checkout
-        uses: actions/checkout@v4
-
-      - id: set-matrix
-        run: echo "matrix=$(jq -c . build_versions.json)" >> $GITHUB_OUTPUT
-
   build_test_container:
     name: 'Build test container'
     runs-on: ubuntu-latest
