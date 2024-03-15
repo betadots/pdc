@@ -26,30 +26,15 @@ jobs:
       actions: read
       contents: read
       security-events: write
-    needs: setup-matrix
-    strategy:
-      matrix: ${{ fromJson(needs.setup-matrix.outputs.matrix) }}
     steps:
-      - name: Test Puppet Development Container ${{ matrix.puppet_release }}
-        uses: voxpupuli/gha-build-and-publish-a-container@v2
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Build Docker image
+        uses: docker/build-push-action@v5
         with:
-          registry_password: ${{ secrets.GITHUB_TOKEN }}
-          build_args: |
-            PUPPET_RELEASE=${{ matrix.puppet_release }}
-            PUPPET_VERSION=${{ matrix.puppet_version }}
-            TERRAFORM_VERSION=${{ matrix.terraform_version }}
-            PDK_VERSION=${{ matrix.pdk_version }}
-            BOLT_VERSION=${{ matrix.bolt_version }}
-            PUPPETDB_TERMINI_VERSION=${{ matrix.puppetdb_termini_version }}
-            RUBYGEM_BUNDLER=${{ matrix.rubygem_bundler }}
-            RUBYGEM_VOXPUPULI_TEST=${{ matrix.rubygem_voxpupuli_test }}
-            RUBYGEM_VOXPUPULI_ACCEPTANCE=${{ matrix.rubygem_voxpupuli_acceptance }}
-            RUBYGEM_VOXPUPULI_RELEASE=${{ matrix.rubygem_voxpupuli_release }}
-            RUBYGEM_PUPPET_METADATA=${{ matrix.rubygem_puppet_metadata }}
-            RUBYGEM_OVERCOMMIT=${{ matrix.rubygem_overcommit }}
-            RUBYGEM_MODULESYNC=${{ matrix.rubygem_modulesync }}
-          publish: 'false'
           tags: 'ci/pdc:${{ github.sha }}'
+          push: false
 
       - name: Run Trivy vulnerability scanner
         uses: aquasecurity/trivy-action@master
