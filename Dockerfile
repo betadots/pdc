@@ -1,6 +1,6 @@
 ARG UBUNTU_CODENAME=jammy
 
-FROM ubuntu:${UBUNTU_CODENAME}
+FROM ghcr.io/betadots/ruby:3.3.0-${UBUNTU_CODENAME}
 
 LABEL org.label-schema.maintainer="betadots GmbH <info@betadots.de>" \
       org.label-schema.vendor="betadots" \
@@ -73,12 +73,6 @@ RUN apt update && apt upgrade -y && apt install -y --no-install-recommends \
     puppetdb-termini=${PUPPETDB_TERMINI_VERSION}-1${UBUNTU_CODENAME} \
     unzip \
     yamllint \
-    make \
-    libc-dev \
-    gcc \
-    g++ \
-    ruby3.0 \
-    ruby3.0-dev \
     && apt autoremove -y \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* \
