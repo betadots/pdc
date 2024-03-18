@@ -13,7 +13,8 @@
       "rubygem_voxpupuli_release": "3.0.1",
       "rubygem_puppet_metadata": "3.6.0",
       "rubygem_overcommit": "0.63.0",
-      "rubygem_modulesync": "3.2.0"
+      "rubygem_modulesync": "3.2.0",
+      "base_image": "ruby:2.7.8-bullseye"
     },
     {
       "puppet_release": 8,
@@ -28,7 +29,8 @@
       "rubygem_voxpupuli_release": "3.0.1",
       "rubygem_puppet_metadata": "3.6.0",
       "rubygem_overcommit": "0.63.0",
-      "rubygem_modulesync": "3.2.0"
+      "rubygem_modulesync": "3.2.0",
+      "base_image": "ruby:3.2.3-bullseye"
     }
   ]
 }

@@ -1,6 +1,7 @@
-ARG UBUNTU_CODENAME=jammy
+ARG UBUNTU_CODENAME=bullseye
+ARG BASE_IMAGE
 
-FROM ghcr.io/betadots/ruby:3.3.0-${UBUNTU_CODENAME}
+FROM $BASE_IMAGE
 
 LABEL org.label-schema.maintainer="betadots GmbH <info@betadots.de>" \
       org.label-schema.vendor="betadots" \
