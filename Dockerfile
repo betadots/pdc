@@ -56,8 +56,7 @@ RUN apt update && apt upgrade -y && apt install -y --no-install-recommends \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* \
     && locale-gen en_US.UTF-8 \
-    && /opt/puppetlabs/puppet/bin/puppet module install puppet-catalog_diff \
-    && gem install bundler -v ${RUBYGEM_BUNDLER} --no-document
+    && /opt/puppetlabs/puppet/bin/puppet module install puppet-catalog_diff
 
 ADD https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_${TARGETARCH}.zip /terraform_${TERRAFORM_VERSION}_linux_${TARGETARCH}.zip
 RUN \
