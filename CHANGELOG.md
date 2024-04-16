@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file.
 
+## [v3.0.0](https://github.com/betadots/pdc/tree/v3.0.0) (2024-04-16)
+
+[Full Changelog](https://github.com/betadots/pdc/compare/v2.1.0...v3.0.0)
+
+**Breaking changes:**
+
+- update puppet versions, drop gems again, update github workflows [\#50](https://github.com/betadots/pdc/pull/50) ([rwaffen](https://github.com/rwaffen))
+
+**Implemented enhancements:**
+
+- Add modulesync to Container Image [\#45](https://github.com/betadots/pdc/pull/45) ([bastelfreak](https://github.com/bastelfreak))
+
+**Merged pull requests:**
+
+- use same version for puppet package and rubygem [\#46](https://github.com/betadots/pdc/pull/46) ([rwaffen](https://github.com/rwaffen))
+
 ## [v2.1.0](https://github.com/betadots/pdc/tree/v2.1.0) (2024-03-12)
 
 [Full Changelog](https://github.com/betadots/pdc/compare/v2.0.0...v2.1.0)
