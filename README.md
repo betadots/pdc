@@ -49,6 +49,10 @@ main-<puppet.major>
 
 `latest` should be self-explanatory. The `main` tags are built with every push to the main branch and can be regarded as development tags.
 
+### Version updates
+
+PDC will update its minor version to align with minor version updates of the tools it encapsulates. A major version update of any tool, the base container, or incompatible changes in the container build setup will trigger a major version update of PDC.
+
 ## Changelog
 
 see [CHANGELOG.md](CHANGELOG.md)
