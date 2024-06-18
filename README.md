@@ -51,7 +51,7 @@ main-<puppet.major>
 
 ### Version updates
 
-PDC will update its minor version as long as the tools it encapsulates also only update their minor versions. If a major version of a tool is released, PDC will update its major version, too. Also if the base container is updated to a new major version, PDC will update its major version. Or if there are incompatible changes in the container build setup.
+PDC will update its minor version to align with minor version updates of the tools it encapsulates. A major version update of any tool, the base container, or incompatible changes in the container build setup will trigger a major version update of PDC.
 
 ## Changelog
 
