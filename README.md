@@ -3,8 +3,19 @@
 [![Maintained by betadots GmbH](https://img.shields.io/badge/Maintained%20by-betadots%20GmbH-blue.svg)](https://www.betadots.de)
 [![QA🚦](https://github.com/betadots/pdc/actions/workflows/ci.yaml/badge.svg)](https://github.com/betadots/pdc/actions/workflows/ci.yaml)
 [![Build and publish a 🛢️ container](https://github.com/betadots/pdc/actions/workflows/build_container.yml/badge.svg)](https://github.com/betadots/pdc/actions/workflows/build_container.yml)
+[![License](https://img.shields.io/github/license/betadots/pdc.svg)](https://github.com/betadots/pdc/blob/main/LICENSE)
 
 This repository contains the code for the betadots Puppet Development Container (PDC).
+
+## ToC
+
+* [Usage](#usage)
+* [Version schema](#version-schema)
+  * [other tags](#other-tags)
+  * [Version updates](#version-updates)
+* [Changelog](#changelog)
+* [How to contribute](#how-to-contribute)
+* [How to release](#how-to-release)
 
 ## Usage
 
@@ -57,10 +68,10 @@ PDC will update its minor version to align with minor version updates of the too
 
 see [CHANGELOG.md](CHANGELOG.md)
 
-## How to contribute?
+## How to contribute
 
 see [CONTRIBUTING.md](CONTRIBUTING.md)
 
-## How to release?
+## How to release
 
 see [RELEASE.md](RELEASE.md)
