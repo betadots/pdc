@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file.
 
+## [v3.1.0](https://github.com/betadots/pdc/tree/v3.1.0) (2024-06-18)
+
+[Full Changelog](https://github.com/betadots/pdc/compare/v3.0.0...v3.1.0)
+
+**Implemented enhancements:**
+
+- Update puppet, puppetdb-termini, terraform, pdk and bolt to latest versions [\#55](https://github.com/betadots/pdc/pull/55) ([rwaffen](https://github.com/rwaffen))
+- update terraform for release 8 image [\#52](https://github.com/betadots/pdc/pull/52) ([rwaffen](https://github.com/rwaffen))
+
+**Closed issues:**
+
+- Replacement for Vox Pupuli testing Container? [\#49](https://github.com/betadots/pdc/issues/49)
+- need newer ruby for puppet 8 gems [\#48](https://github.com/betadots/pdc/issues/48)
+
+**Merged pull requests:**
+
+- add toc and license link to readme [\#57](https://github.com/betadots/pdc/pull/57) ([rwaffen](https://github.com/rwaffen))
+- Update readme/release notes [\#56](https://github.com/betadots/pdc/pull/56) ([rwaffen](https://github.com/rwaffen))
+- Bump docker/build-push-action from 5 to 6 [\#54](https://github.com/betadots/pdc/pull/54) ([dependabot[bot]](https://github.com/apps/dependabot))
+
 ## [v3.0.0](https://github.com/betadots/pdc/tree/v3.0.0) (2024-04-16)
 
 [Full Changelog](https://github.com/betadots/pdc/compare/v2.1.0...v3.0.0)
