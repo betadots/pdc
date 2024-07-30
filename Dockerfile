@@ -36,11 +36,13 @@ ENV PUPPETDB_TERMINI_VERSION=${PUPPETDB_TERMINI_VERSION:-7.15.0}
 
 ENV DEBIAN_FRONTEND=noninteractive
 ENV PUPPET_DEB=puppet${PUPPET_RELEASE}-release-${UBUNTU_CODENAME}.deb
+ENV PUPPET_TOOLS_DEB=puppet-tools-release-${UBUNTU_CODENAME}.deb
 
 ADD https://apt.puppet.com/${PUPPET_DEB} /${PUPPET_DEB}
+ADD https://apt.puppet.com/${PUPPET_TOOLS_DEB} /${PUPPET_TOOLS_DEB}
 
-RUN apt install /${PUPPET_DEB} \
-    && rm -f /${PUPPET_DEB}
+RUN apt install /${PUPPET_DEB} /${PUPPET_TOOLS_DEB} \
+    && rm -f /${PUPPET_DEB} /${PUPPET_TOOLS_DEB}
 
 RUN apt update && apt upgrade -y && apt install -y --no-install-recommends \
     ca-certificates \
