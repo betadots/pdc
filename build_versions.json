@@ -2,19 +2,19 @@
   "include": [
     {
       "puppet_release": 7,
-      "puppet_version": "7.31.0",
-      "puppetdb_termini_version": "7.19.0",
-      "terraform_version": "1.8.5",
+      "puppet_version": "7.32.1",
+      "puppetdb_termini_version": "7.19.1",
+      "terraform_version": "1.9.3",
       "pdk_version": "3.2.0.1",
-      "bolt_version": "3.29.0"
+      "bolt_version": "3.30.0"
     },
     {
       "puppet_release": 8,
-      "puppet_version": "8.7.0",
-      "puppetdb_termini_version": "8.6.0",
-      "terraform_version": "1.8.5",
+      "puppet_version": "8.8.1",
+      "puppetdb_termini_version": "8.7.0",
+      "terraform_version": "1.9.3",
       "pdk_version": "3.2.0.1",
-      "bolt_version": "3.29.0"
+      "bolt_version": "3.30.0"
     }
   ]
 }
