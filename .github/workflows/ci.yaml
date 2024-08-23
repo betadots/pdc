@@ -2,12 +2,23 @@
 name: QA🚦
 
 on:
-  pull_request: {}
-  push:
+  pull_request:
     branches:
       - main
+  workflow_dispatch:
 
 jobs:
+  setup-matrix:
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.set-matrix.outputs.matrix }}
+    steps:
+      - name: Source checkout
+        uses: actions/checkout@v4
+
+      - id: set-matrix
+        run: echo "matrix=$(jq -c . build_versions.json)" >> $GITHUB_OUTPUT
+
   build_test_container:
     name: 'Build test container'
     runs-on: ubuntu-latest
@@ -15,6 +26,10 @@ jobs:
       actions: read
       contents: read
       security-events: write
+      pull-requests: write
+    needs: setup-matrix
+    strategy:
+      matrix: ${{ fromJson(needs.setup-matrix.outputs.matrix) }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -22,20 +37,46 @@ jobs:
       - name: Build Docker image
         uses: docker/build-push-action@v6
         with:
-          tags: 'ci/pdc:${{ github.sha }}'
+          tags: 'ci/pdc:${{ matrix.puppet_release }}'
           push: false
+          build-args: |
+            PUPPET_RELEASE=${{ matrix.puppet_release }}
+            PUPPET_VERSION=${{ matrix.puppet_version }}
+            TERRAFORM_VERSION=${{ matrix.terraform_version }}
+            PDK_VERSION=${{ matrix.pdk_version }}
+            BOLT_VERSION=${{ matrix.bolt_version }}
+            PUPPETDB_TERMINI_VERSION=${{ matrix.puppetdb_termini_version }}
 
-      - name: Run Trivy vulnerability scanner
-        uses: aquasecurity/trivy-action@master
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
         with:
-          image-ref: 'ci/pdc:${{ github.sha }}'
-          format: 'sarif'
-          output: 'trivy-results.sarif'
+          username: ${{ vars.DOCKERHUB_USER }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      - name: Upload Trivy scan results to GitHub Security tab
+      - name: Analyze container image for CVEs
+        id: analyze-image-cves
+        uses: docker/scout-action@v1
+        with:
+          command: cves
+          image: 'local://ci/pdc:${{ matrix.puppet_release }}'
+          sarif-file: sarif.output.${{ matrix.puppet_release }}.${{ github.sha }}.json
+          write-comment: false
+
+      - name: Compare container image to latest from Registry
+        id: compare-image
+        uses: docker/scout-action@v1
+        with:
+          command: compare
+          image: 'local://ci/pdc:${{ matrix.puppet_release }}'
+          to: 'ghcr.io/betadots/pdc:latest-${{ matrix.puppet_release }}'
+          summary: true
+          keep-previous-comments: true
+
+      - name: Upload SARIF result
+        id: upload-sarif
         uses: github/codeql-action/upload-sarif@v3
         with:
-          sarif_file: 'trivy-results.sarif'
+          sarif_file: sarif.output.${{ matrix.puppet_release }}.${{ github.sha }}.json
 
   tests:
     needs:
