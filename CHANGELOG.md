@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+## [v3.2.0](https://github.com/betadots/pdc/tree/v3.2.0) (2024-09-13)
+
+[Full Changelog](https://github.com/betadots/pdc/compare/v3.1.0...v3.2.0)
+
+**Implemented enhancements:**
+
+- feat: update versions, set defaults to puppet8 [\#64](https://github.com/betadots/pdc/pull/64) ([rwaffen](https://github.com/rwaffen))
+- feat: Update CI, add jq [\#61](https://github.com/betadots/pdc/pull/61) ([rwaffen](https://github.com/rwaffen))
+- add puppet tools repo, to get bolt from central repo [\#60](https://github.com/betadots/pdc/pull/60) ([rwaffen](https://github.com/rwaffen))
+- update puppet, termini, terraform and bolt [\#59](https://github.com/betadots/pdc/pull/59) ([rwaffen](https://github.com/rwaffen))
+
+**Merged pull requests:**
+
+- fix: LegacyKeyValueFormat Dockerfile lint warning [\#65](https://github.com/betadots/pdc/pull/65) ([rwaffen](https://github.com/rwaffen))
+
 ## [v3.1.0](https://github.com/betadots/pdc/tree/v3.1.0) (2024-06-18)
 
 [Full Changelog](https://github.com/betadots/pdc/compare/v3.0.0...v3.1.0)
