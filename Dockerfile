@@ -74,6 +74,6 @@ COPY Dockerfile /
 ENV BOLT_DISABLE_ANALYTICS=true
 ENV PDK_DISABLE_ANALYTICS=true
 ENV PATH=$PATH:/opt/puppetlabs/puppet/bin:/opt/puppetlabs/bin
-ENV LANG en_US.UTF-8
-ENV LANGUAGE en_US:en
-ENV LC_ALL en_US.UTF-8
+ENV LANG=en_US.UTF-8
+ENV LANGUAGE=en_US:en
+ENV LC_ALL=en_US.UTF-8
