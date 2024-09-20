@@ -38,7 +38,7 @@ jobs:
       - name: Build CI container
         uses: docker/build-push-action@v6
         with:
-          tags: 'ci/pdc:${{ matrix.rubygem_puppet }}'
+          tags: 'ci/pdc:${{ matrix.puppet_version }}'
           push: false
           build-args: |
             PUPPET_RELEASE=${{ matrix.puppet_release }}
@@ -52,7 +52,7 @@ jobs:
         uses: anchore/scan-action@v4
         id: scan
         with:
-          image: 'ci/pdc:${{ matrix.rubygem_puppet }}'
+          image: 'ci/pdc:${{ matrix.puppet_version }}'
           fail-build: false
 
       - name: Inspect action SARIF report
