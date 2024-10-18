@@ -1,0 +1,23 @@
+
+include:
+    - puppet_release: 7
+      # renovate: datasource=deb depName=puppet-agent
+      puppet_version: "7.33.0"
+      # renovate: datasource=deb depName=puppetdb-termini
+      puppetdb_termini_version: "7.19.1"
+      terraform_version: "1.9.5"
+      # renovate: datasource=deb depName=pdk
+      pdk_version: "3.3.0.0"
+      # renovate: datasource=deb depName=puppet-bolt
+      bolt_version: "3.30.0"
+
+    - puppet_release: 8
+      # renovate: datasource=deb depName=puppet-agent
+      puppet_version: "8.9.0"
+      # renovate: datasource=deb depName=puppetdb-termini
+      puppetdb_termini_version: "8.7.0"
+      terraform_version: "1.9.5"
+      # renovate: datasource=deb depName=pdk
+      pdk_version: "3.3.0.0"
+      # renovate: datasource=deb depName=puppet-bolt
+      bolt_version: "3.30.0"
