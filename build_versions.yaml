@@ -13,7 +13,7 @@ include:
 
     - puppet_release: 8
       # renovate: depName=puppet-agent puppetRelease=8
-      puppet_version: "8.9.0"
+      puppet_version: "8.10.0-1jammy"
       # renovate: depName=puppetdb-termini puppetRelease=8
       puppetdb_termini_version: "8.7.0"
       terraform_version: "1.9.5"
