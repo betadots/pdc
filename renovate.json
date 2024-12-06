@@ -2,5 +2,27 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "config:recommended"
+  ],
+  "packageRules": [
+    {
+      "matchDatasources": ["deb"],
+      "matchPackageNames": ["puppet-bolt"],
+      "registryUrls": ["http://apt.puppet.com?suite=jammy&components=puppet-tools&binaryArch=amd64"]
+    },
+    {
+      "matchDatasources": ["deb"],
+      "matchPackageNames": ["pdk"],
+      "registryUrls": ["http://apt.puppet.com?suite=jammy&components=puppet-tools&binaryArch=amd64"]
+    }
+  ],
+
+  "customManagers": [
+    {
+      "customType": "regex",
+      "fileMatch": ["build_versions.yaml"],
+      "matchStrings": ["#\\s*renovate:\\s*depName=(?<depName>.*?)\\s*puppetRelease=(?<puppetRelease>\\d+)\\s*\\n\\s*(?<key>\\w+_version):\\s*\"(?<currentValue>.*?)\""],
+      "registryUrlTemplate": "http://apt.puppet.com?suite=jammy&components=puppet{{puppetRelease}}&binaryArch=amd64",
+      "datasourceTemplate": "deb"
+    }
   ]
 }
