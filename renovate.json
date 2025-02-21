@@ -20,7 +20,7 @@
     {
       "customType": "regex",
       "fileMatch": ["build_versions.yaml"],
-      "matchStrings": ["#\\s*renovate:\\s*depName=(?<depName>.*?)\\s*puppetRelease=(?<puppetRelease>\\d+)\\s*\\n\\s*(?<key>\\w+_version):\\s*\"(?<currentValue>[^\"]*?)(?:-1jammy)?\""],
+      "matchStrings": ["#\\s*renovate:\\s*depName=(?<depName>.*?)\\s*puppetRelease=(?<puppetRelease>\\d+)\\s*\\n\\s*(?<key>\\w+_version):\\s*\"(?<currentValue>.*?)\""],
       "registryUrlTemplate": "http://apt.puppet.com?suite=jammy&components=puppet{{puppetRelease}}&binaryArch=amd64",
       "datasourceTemplate": "deb"
     }

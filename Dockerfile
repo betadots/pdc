@@ -48,10 +48,10 @@ RUN apt update && apt upgrade -y && apt install -y --no-install-recommends \
     ca-certificates \
     git \
     locales \
-    pdk=${PDK_VERSION}-1${UBUNTU_CODENAME} \
-    puppet-agent=${PUPPET_VERSION}-1${UBUNTU_CODENAME} \
-    puppet-bolt=${BOLT_VERSION}-1${UBUNTU_CODENAME} \
-    puppetdb-termini=${PUPPETDB_TERMINI_VERSION}-1${UBUNTU_CODENAME} \
+    pdk=${PDK_VERSION} \
+    puppet-agent=${PUPPET_VERSION} \
+    puppet-bolt=${BOLT_VERSION} \
+    puppetdb-termini=${PUPPETDB_TERMINI_VERSION} \
     unzip \
     yamllint \
     jq \
