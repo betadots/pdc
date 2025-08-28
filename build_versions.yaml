@@ -2,7 +2,7 @@
 include:
     - puppet_release: 7
       # renovate: depName=puppet-agent puppetRelease=7
-      puppet_version: "7.33.0-1jammy"
+      puppet_version: "7.34.0-1jammy"
       # renovate: depName=puppetdb-termini puppetRelease=7
       puppetdb_termini_version: "7.20.1-1jammy"
       terraform_version: "1.9.5"
