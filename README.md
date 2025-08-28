@@ -5,9 +5,9 @@
 [![Build and publish a 🛢️ container](https://github.com/betadots/pdc/actions/workflows/build_container.yml/badge.svg)](https://github.com/betadots/pdc/actions/workflows/build_container.yml)
 [![License](https://img.shields.io/github/license/betadots/pdc.svg)](https://github.com/betadots/pdc/blob/main/LICENSE)
 
----
-⚠️ ❌ This repository is deprecated and is no longer actively maintained. ❌ ⚠️
----
+# ❌ This repository is deprecated and is no longer actively maintained. ❌
+# as a replacement you may use [voxpupuli/voxbox](https://github.com/voxpupuli/container-voxbox)
+
 This repository contains the code for the betadots Puppet Development Container (PDC).
 
 ## ToC
